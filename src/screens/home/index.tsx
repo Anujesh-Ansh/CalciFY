@@ -23,11 +23,13 @@ export default function Home() {
     const [result, setResult] = useState<GeneratedResult>();
     const [dictOfVars, setDictOfVars] = useState({});
     const [brushSize, setBrushSize] = useState(3); // Default brush size
+    const [showMemo, setShowMemo] = useState(true); // State to show/hide bac
 
     useEffect(() => {
         if (reset) {
             resetCanvas();
             setReset(false);
+            setShowMemo(true);
         }
     }, [reset]);
 
@@ -85,6 +87,7 @@ export default function Home() {
                 ctx.beginPath();
                 ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
                 setIsDrawing(true);
+                setShowMemo(false); // Hide the memo when drawing starts
             }
         }
     };
@@ -191,6 +194,14 @@ export default function Home() {
                 onMouseMove={draw}
                 onMouseLeave={stopDrawing}
             />
+            {showMemo && ( // Conditionally render the back div
+                <div className='back'>
+                    <h1 className='mem'>Start Scribbling....</h1>
+                    <h1 className='highl'>Shift + Command + N → Run</h1>
+                    <h1 className='highl'>Shift + Command + E → Reset</h1>
+
+                </div>
+            )}
         </>
     );
 }

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -69,6 +74,7 @@
 
 .grid-container {
   position: absolute;
+  border-radius: 0rem 3rem 3rem 0rem;
   left: 20px;                /* Position the controls towards the left */
   top: 50%;                  /* Center vertically */
   z-index: 10;
@@ -77,6 +83,9 @@
   flex-direction: column;    /* Stack items vertically */
   align-items: flex-start;   /* Align items to the left */
   gap: 1rem;                 /* Space between items */
+  -webkit-box-shadow: 6px 3px 39px 5px rgba(247,247,247,1);
+  -moz-box-shadow: 6px 3px 39px 5px rgba(247,247,247,1);
+  box-shadow: 6px 3px 39px 5px rgba(247,247,247,1);
 }
 
 .color-swatch-group {
@@ -94,6 +103,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 }
 
 .color-swatch {
@@ -123,4 +133,38 @@
   border-radius: 50%;        /* Rounded thumb */
   background: #007bff;       /* Color of the thumb */
   cursor: pointer;
+}
+
+.back {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for perfect centering */
+  z-index: 10; /* Ensure it is above the canvas */
+  padding: 20px; /* Padding around the text */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.highl {
+  font-size: 2rem; /* Smaller font size for instructions */
+  font-family: 'Poppins', sans-serif; /* Use Poppins font */
+  color: #ddd; /* Faded grey color */
+  text-align: center;
+  margin: 5px 0; /* Small margin between text lines */
+  font-weight: 300; /* Light weight for subtlety */
+}
+
+.mem {
+  font-size: 10rem; /* Large font size */
+  font-family: "Permanent Marker", cursive;
+  font-weight: bolder;
+  font-style: normal;
+  color: #fff;
+}
+
+/* Optionally, add a hover effect */
+.mem:hover {
+  color: #fff; /* Highlight on hover */
+  transition: color 0.3s ease-in-out; /* Smooth transition */
 }
