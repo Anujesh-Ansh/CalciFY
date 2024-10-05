@@ -4,6 +4,7 @@ import { ColorSwatch, Group } from '@mantine/core';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import Draggable from 'react-draggable';
+import './global';
 
 interface Response {
     expr: string;
