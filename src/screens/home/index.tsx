@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SWATCHES } from '@/constants';
 import { ColorSwatch, Group } from '@mantine/core';
 import { Button } from '@/components/ui/button';
@@ -286,7 +286,7 @@ export default function Home() {
                 <Draggable
                     key={index}
                     defaultPosition={latexPos}
-                    onStop={(e, data) => setLatexPos({ x: data.x, y: data.y })}
+                    onStop={(_, data) => setLatexPos({ x: data.x, y: data.y })}
                 >
                     <div
                         className="absolute p-4 bg-white text-black rounded shadow-lg"
