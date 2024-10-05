@@ -74,16 +74,18 @@ export default function Home() {
         script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/config/TeX-MML-AM_CHTML.js';
         script.async = true;
         document.head.appendChild(script);
-
+    
         script.onload = () => {
-            window.MathJax.Hub.Config({
-                tex2jax: {
-                    inlineMath: [['$', '$'], ['\\(', '\\)']],
-                    processEscapes: true
-                }
-            });
+            if (window.MathJax) {
+                window.MathJax.Hub.Config({
+                    tex2jax: {
+                        inlineMath: [['$', '$'], ['\\(', '\\)']],
+                        processEscapes: true
+                    }
+                });
+            }
         };
-
+    
         return () => {
             document.head.removeChild(script);
         };
